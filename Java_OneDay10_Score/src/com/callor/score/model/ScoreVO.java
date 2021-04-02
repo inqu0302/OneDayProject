@@ -7,9 +7,24 @@ public class ScoreVO {
 	protected Integer intMath;
 	protected Integer intScience;
 	protected Integer intHistory;
+	protected Integer intTotal;
+	protected float floatAvg; 
 	protected String strName;
 	
 	
+	
+	public Integer getIntTotal() {
+		return intTotal;
+	}
+	public void setIntTotal(Integer intTotal) {
+		this.intTotal = intTotal;
+	}
+	public float getFloatAvg() {
+		return floatAvg;
+	}
+	public void setFloatAvg(float floatAvg) {
+		this.floatAvg = floatAvg;
+	}
 	public Integer getIntKor() {
 		return intKor;
 	}
