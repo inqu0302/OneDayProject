@@ -144,15 +144,18 @@ public class QuizServiceImplV1 implements QuizService {
 				System.out.println("Game Over");
 				return;
 			}
+			// 중복 while문 메서드로 분리해보기
 			while (true) {
 				System.out.println("=".repeat(80));
 				System.out.println(Arrays.toString(word) + "\t 현재 점수 ( " + score + "점 )\t남은기회 : " + count);
 				System.out.println("다음문제로 넘어가려면 : PASS 를 입력하세요");
 				System.out.println("힌트를 원하시면 [ HINT ] 를 입력하세요 점수를 1점 차감합니다");
-//				System.out.println(vo.getEng());
+				System.out.println(vo.getEng());
 				System.out.println("=".repeat(80));
 				System.out.print(">>> ");
 				String input = scan.nextLine();
+				
+				// if 지옥 메서드로 분리해서 탈출시키기
 				if (input.equals("QUIT")) {
 					System.out.println("게임을 종료합니다.");
 					return;
@@ -260,7 +263,7 @@ public class QuizServiceImplV1 implements QuizService {
 		while(true) {
 			
 			
-			System.out.println("불러오실 파일 이름을 입력해 주세요 ( QUIT : 메뉴로 돌아가기 ");
+			System.out.println("불러오실 파일 이름을 입력해 주세요 ( QUIT : 메뉴로 돌아가기 ) ");
 			System.out.print(">>> ");
 			String inputName = scan.nextLine();
 			
@@ -283,6 +286,7 @@ public class QuizServiceImplV1 implements QuizService {
 					saveScore = Integer.valueOf(score);
 				}
 				
+				buffer.close();
 				
 			} catch (FileNotFoundException e) {
 				System.out.println("파일 이름이 잘못되었습니다.");
