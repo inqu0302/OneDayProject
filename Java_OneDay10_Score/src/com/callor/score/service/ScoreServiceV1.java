@@ -244,7 +244,7 @@ public class ScoreServiceV1 {
 			}
 			if(score > 100 || score < 0) {
 				System.out.println("점수를 확인해주세요");
-				continue;
+				continue; 
 			}
 			return score;
 		}			
