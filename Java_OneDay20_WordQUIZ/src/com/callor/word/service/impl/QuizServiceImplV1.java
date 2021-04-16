@@ -145,17 +145,20 @@ public class QuizServiceImplV1 implements QuizService {
 				return;
 			}
 			while (true) {
+				System.out.println("=".repeat(80));
 				System.out.println(Arrays.toString(word) + "\t 현재 점수 ( " + score + "점 )\t남은기회 : " + count);
+				System.out.println("다음문제로 넘어가려면 : PASS 를 입력하세요");
 				System.out.println("힌트를 원하시면 [ HINT ] 를 입력하세요 점수를 1점 차감합니다");
-				System.out.println(vo.getEng());
+//				System.out.println(vo.getEng());
 				System.out.println("=".repeat(80));
 				System.out.print(">>> ");
 				String input = scan.nextLine();
 				if (input.equals("QUIT")) {
 					System.out.println("게임을 종료합니다.");
 					return;
-				}
-				if (input.equals("HINT")) {
+				} else if (input.equals("PASS")) {
+					break;
+				} else if (input.equals("HINT")) {
 					if(score <= 0) {
 						System.out.println("점수가 부족해 힌트를 볼 수 없습니다.");
 						continue;
