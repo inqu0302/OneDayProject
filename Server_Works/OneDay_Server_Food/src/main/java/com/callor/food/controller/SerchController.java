@@ -41,7 +41,7 @@ public class SerchController extends HttpServlet{
 			List<FoodDTO> foodList = fdService.selectAll();
 			ServletContext app = this.getServletContext();
 			app.setAttribute("FOOD", foodList);
-			System.out.println(foodList);
+			
 			req.getRequestDispatcher("/WEB-INF/views/serchfood.jsp").forward(req, resp);
 		}
 	}

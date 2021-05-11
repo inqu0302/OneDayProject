@@ -24,7 +24,9 @@
 		<button>검색</button>
 	</form>
 	
-	<a href="/food/">Home</a>
+	<form action="/food">
+	<button>Home</button>
+	</form>
 	
 </body>
 </html>

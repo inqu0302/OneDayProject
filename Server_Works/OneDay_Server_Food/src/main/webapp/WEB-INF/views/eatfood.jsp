@@ -17,7 +17,7 @@
 		<button>조회하기</button>
 	</a>
 		
-	
-	<a href="/food/">Home</a>
+	<p><a href="/food/">
+		<button>Home</button></a>
 </body>
 </html>

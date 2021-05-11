@@ -9,7 +9,7 @@ import java.util.List;
 
 import com.callor.food.model.FoodDTO;
 import com.callor.food.persistenece.DBContract;
-import com.callor.food.persistenece.DBInfo;
+import com.callor.food.persistenece.FoodInfo;
 import com.callor.food.service.FoodService;
 
 public class FoodServiceImplV1 implements FoodService{
@@ -25,21 +25,22 @@ public class FoodServiceImplV1 implements FoodService{
 		List<FoodDTO> foodList = new ArrayList<FoodDTO>();
 		ResultSet rSet = pStr.executeQuery();
 		
+		
 		while(rSet.next()) {
 			
 			FoodDTO foodDTO = new FoodDTO();
-			foodDTO.setFd_code(rSet.getString(DBInfo.FOOD.fd_code));
-			foodDTO.setFd_name(rSet.getString(DBInfo.FOOD.fd_name));
-			foodDTO.setFd_year(rSet.getString(DBInfo.FOOD.fd_year));
-			foodDTO.setCp_name(rSet.getString(DBInfo.FOOD.cp_name));
-			foodDTO.setIt_name(rSet.getString(DBInfo.FOOD.it_name));
-			foodDTO.setFd_ssize(rSet.getInt(DBInfo.FOOD.fd_ssize));
-			foodDTO.setFd_gram(rSet.getInt(DBInfo.FOOD.fd_ssize));
-			foodDTO.setFd_kcal(rSet.getInt(DBInfo.FOOD.fd_kcal));
-			foodDTO.setFd_protein(rSet.getInt(DBInfo.FOOD.fd_protein));
-			foodDTO.setFd_fat(rSet.getInt(DBInfo.FOOD.fd_fat));
-			foodDTO.setFd_carbohydrate(rSet.getInt(DBInfo.FOOD.fd_carbohydrate));
-			foodDTO.setFd_sugar(rSet.getInt(DBInfo.FOOD.fd_sugar));
+			foodDTO.setFd_code(rSet.getString(FoodInfo.FOOD.fd_code));
+			foodDTO.setFd_name(rSet.getString(FoodInfo.FOOD.fd_name));
+			foodDTO.setFd_year(rSet.getString(FoodInfo.FOOD.fd_year));
+			foodDTO.setCp_name(rSet.getString(FoodInfo.FOOD.cp_name));
+			foodDTO.setIt_name(rSet.getString(FoodInfo.FOOD.it_name));
+			foodDTO.setFd_ssize(rSet.getInt(FoodInfo.FOOD.fd_ssize));
+			foodDTO.setFd_gram(rSet.getInt(FoodInfo.FOOD.fd_gram));
+			foodDTO.setFd_kcal(rSet.getInt(FoodInfo.FOOD.fd_kcal));
+			foodDTO.setFd_protein(rSet.getInt(FoodInfo.FOOD.fd_protein));
+			foodDTO.setFd_fat(rSet.getInt(FoodInfo.FOOD.fd_fat));
+			foodDTO.setFd_carbohydrate(rSet.getInt(FoodInfo.FOOD.fd_carbohydrate));
+			foodDTO.setFd_sugar(rSet.getInt(FoodInfo.FOOD.fd_sugar));
 			foodList.add(foodDTO);
 		}
 		rSet.close();
@@ -74,7 +75,24 @@ public class FoodServiceImplV1 implements FoodService{
 
 	@Override
 	public List<FoodDTO> findBytitle(String fd_name) {
-		// TODO Auto-generated method stub
+		
+		
+		String sql = " SELECT * FROM view_식품정보 ";
+		sql += " WHERE 식품명 LIKE '%' || ? || '%' ";
+		
+		PreparedStatement pStr = null;
+		
+		try {
+			pStr = dbConn.prepareStatement(sql);
+			pStr.setString(1, fd_name);
+			List<FoodDTO> fdList = this.select(pStr);
+			pStr.close();
+			
+			return fdList;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return null;
 	}
 	

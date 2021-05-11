@@ -15,7 +15,7 @@ import lombok.ToString;
 
 public class EatVO {
 
-	private String mf_code;	//	char(7 byte)
 	private String mf_date;	//	nvarchar2(10 char)
+	private String mf_code;	//	char(7 byte)
 	private int mf_eat;		//	number
 }
