@@ -3,16 +3,17 @@ package com.callor.score.service;
 import java.util.List;
 
 import com.callor.score.model.ScoreVO;
+import com.callor.score.model.StudentVO;
 
 
 public interface ScoreService {
 
-	public void insert(ScoreVO scoreVO);
+	public int insert(ScoreVO vo);
 	
-	public void update(ScoreVO scoreVO);
+	public int update(ScoreVO vo);
 	
-	public void delet(String sc_stnum, String sc_subject);
+	public int delete(String sc_stnum, String sc_subject);
 	
-	public List<ScoreVO> selectAll(String sc_stnum);
+	public List<ScoreVO> findbyNum(String st_num);
 	
 }

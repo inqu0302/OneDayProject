@@ -1,11 +1,10 @@
-package com.callor.score.service;
+package com.callor.score.pesistance;
 
 import java.util.List;
 
 import com.callor.score.model.StudentDTO;
-import com.callor.score.model.StudentVO;
 
-public interface StudentService {
+public interface StudentDAO<StudentVO, String> {
 
 	public List<StudentDTO> selectAll();
 	
