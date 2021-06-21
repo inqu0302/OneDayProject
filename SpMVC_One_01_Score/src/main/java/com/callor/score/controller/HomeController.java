@@ -12,13 +12,20 @@ import com.callor.score.service.impl.StudentsServiceImplV1;
 @Controller
 public class HomeController {
 
+	protected final StudentsServiceImplV1 studentV1;
+	
+	public public HomeController(StudentsServiceImplV1 studentV1) {
+		
+		this.studentV1 = studentV1;
+	}
+	
 	@Value("${student}")
 	protected StudentDTO studentDTO;
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Model model) {
 		
-		model.addAttribute("student", StudentsServiceImplV1.this.selectAll());
+		model.addAttribute("student" );
 		
 		
 		return "home";

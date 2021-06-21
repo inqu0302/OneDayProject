@@ -23,10 +23,7 @@ CREATE TABLE tbl_score(
 ALTER TABLE tbl_student
 ADD UNIQUE(st_name, st_dept, st_tel);
 
-CREATE SEQUENCE seq_num
-    START WITH 20210001
-    INCREMENT BY 1;
-    
+   
 INSERT INTO tbl_student(
     st_num, st_name, st_dept,
     st_grade, st_tel, st_addr)

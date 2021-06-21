@@ -2,17 +2,17 @@
 
 CREATE TABLE tbl_student(
     st_num	    CHAR(8)	        PRIMARY KEY,
-    st_name	    nVARCHAR2(20)	NOT NULL,
-    st_dept	    nVARCHAR2(20)	NOT NULL,
+    st_name	    VARCHAR(20)	NOT NULL,
+    st_dept	    VARCHAR(20)	NOT NULL,
     st_grade	NUMBER	        NOT NULL,
-    st_tel	    VARCHAR2(15)	NOT NULL,
-    st_addr	    nVARCHAR2(125)	
+    st_tel	    VARCHAR(15)	NOT NULL,
+    st_addr	    VARCHAR(125)	
 );
 
 CREATE TABLE tbl_score(
     sc_seq	    CHAR(8)	        PRIMARY KEY,
     sc_stnum	CHAR(8)	        NOT NULL,
-    sc_subject	nVARCHAR2(20)	NOT NULL,
+    sc_subject	VARCHAR(20)	NOT NULL,
     sc_score	NUMBER	        NOT NULL
 );
 
