@@ -1,32 +1,36 @@
 package com.callor.score.controller;
 
-import org.springframework.beans.factory.annotation.Value;
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.callor.score.model.StudentDTO;
-import com.callor.score.service.impl.StudentsServiceImplV1;
+import com.callor.score.service.StudentService;
+
+import lombok.extern.slf4j.Slf4j;
 
 @Controller
+@Slf4j
 public class HomeController {
 
-	protected final StudentsServiceImplV1 studentV1;
+	protected final StudentService studentService;
 	
-	public public HomeController(StudentsServiceImplV1 studentV1) {
+	public HomeController(StudentService studentService) {
 		
-		this.studentV1 = studentV1;
+		this.studentService = studentService;
 	}
-	
-	@Value("${student}")
-	protected StudentDTO studentDTO;
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Model model) {
 		
-		model.addAttribute("student" );
+		List<StudentDTO> studentList = studentService.selectScoreAndStudent();
 		
+		model.addAttribute("STUDENT", studentList);
+		
+		log.debug(studentList.toString());
 		
 		return "home";
 	}

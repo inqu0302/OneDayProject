@@ -5,7 +5,7 @@ create database hschool;
 use hschool;
 
 CREATE TABLE tbl_student(
-    st_num	    CHAR(8)	        PRIMARY KEY,
+    st_num	    BIGINT  auto_increment   PRIMARY KEY,
     st_name	    VARCHAR(20)	NOT NULL,
     st_dept	    VARCHAR(20)	NOT NULL,
     st_grade	INT	        NOT NULL,
@@ -13,9 +13,12 @@ CREATE TABLE tbl_student(
     st_addr	    VARCHAR(125)	
 );
 
+alter table tbl_student auto_increment = 20210001;
+
+
 CREATE TABLE tbl_score(
     sc_seq	    BIGINT		auto_increment PRIMARY KEY,
-    sc_stnum	CHAR(8)	        NOT NULL,
+    sc_stnum	BIGINT	        NOT NULL,
     sc_subject	VARCHAR(20)	NOT NULL,
     sc_score	INT	        NOT NULL
 );
@@ -28,24 +31,24 @@ INSERT INTO tbl_student(
     st_num, st_name, st_dept,
     st_grade, st_tel, st_addr)
     VALUES ( 
-    20210001, '홍길동', '전자공학', '2', '010-1111-2222', '서울시');
+    null, '홍길동', '전자공학', '2', '010-1111-2222', '서울시');
 
 INSERT INTO tbl_student(
     st_num, st_name, st_dept,
     st_grade, st_tel, st_addr)
     VALUES ( 
-    20210002, '이몽룡', '컴퓨터공학', '3', '010-1111-2222', '서울시');
+    null, '이몽룡', '컴퓨터공학', '3', '010-1111-2222', '서울시');
     
 INSERT INTO tbl_score(
     sc_stnum, sc_subject, sc_score)
     VALUES(
-    20210002, '국어', 80
+    20210002, '국어', 90
     );
     
 INSERT INTO tbl_score(
     sc_stnum, sc_subject, sc_score)
     VALUES(
-    20210002, '수학', 100
+    20210002, '수학', 80
     );
     
 SELECT * FROM tbl_score;
@@ -58,10 +61,7 @@ REFERENCES tbl_student(st_num);
 SELECT * FROM tbl_score;
 SELECT * FROM tbl_student;
 
-SELECT COUNT (sc_subject) FROM tbl_score
-GROUP BY sc_stnum;
-
-SELECT COUNT (sc_subject) FROM tbl_score
+SELECT COUNT(sc_subject) FROM tbl_score
 GROUP BY sc_stnum;
 
 CREATE VIEW view_학생성적 AS(

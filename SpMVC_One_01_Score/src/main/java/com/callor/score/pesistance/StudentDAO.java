@@ -6,7 +6,9 @@ import com.callor.score.model.StudentDTO;
 
 public interface StudentDAO<StudentVO, String> {
 
-	public List<StudentDTO> selectAll();
+	public List<StudentDTO> selectScoreAndStudent();
+	
+	public List<StudentVO> selectStudent();
 	
 	public int insert(StudentVO vo);
 	

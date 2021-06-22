@@ -35,5 +35,16 @@ table tr:hover{
 		background-color : red;
 		cursor: pointer;
 	}
+	
+form button {
+	border : 2px sloid #DEB887;
+	border-radius: 5px;
+	padding: 5px 10px;
+}
+
+form button:hover{
+	background-color : red;
+	cursor: pointer;
+}
 
 	
