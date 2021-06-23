@@ -14,14 +14,17 @@ import com.callor.score.pesistance.StudentDAO;
 @Repository("authorV1`")
 public class StudentDaoImplV1 implements StudentDAO<StudentVO, String>{
 
-	@Autowired
 	protected JdbcTemplate JdbcTemplate;
+	
+	public StudentDaoImplV1(JdbcTemplate JdbcTemplate) {
+		this.JdbcTemplate = JdbcTemplate;
+	}
 	
 	@Override
 	public List<StudentDTO> selectScoreAndStudent() {
 		// TODO 점수랑 학생정보 전체조회
 		
-		String sql = " SELECT * FROM view_student ";
+		String sql = " SELECT * FROM view_학생성적 ";
 				
 		List<StudentDTO> student = JdbcTemplate.query(sql, new BeanPropertyRowMapper<StudentDTO>(StudentDTO.class));
 				

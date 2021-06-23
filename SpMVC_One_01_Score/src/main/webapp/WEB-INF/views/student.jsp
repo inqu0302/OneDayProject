@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>성적처리 시스템</title>
 </head>
-	<link href="${rootPath}/static/css/table.css?ver=2021-06-18-0052" rel="stylesheet"/>
+	<link href="${rootPath}/static/css/table.css?ver=2021-06-18-0053" rel="stylesheet"/>
 <%@ include file="/WEB-INF/views/include/include_header.jspf" %>
 <body>
 	<table>

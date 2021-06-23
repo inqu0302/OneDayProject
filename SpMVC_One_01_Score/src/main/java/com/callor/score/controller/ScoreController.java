@@ -24,7 +24,7 @@ public class ScoreController {
 	}
 	
 	
-	@RequestMapping(value= {"/",""}, method=RequestMethod.POST)
+	@RequestMapping(value= {"/",""}, method=RequestMethod.GET)
 	public String select(Model model, String st_num) {
 		
 		List<ScoreVO> scList = scService.findbyNum(st_num);
